@@ -1,4 +1,4 @@
-package com.vi.demo;
+package com.vi.demo.reflect;
 
 public class Person {
 

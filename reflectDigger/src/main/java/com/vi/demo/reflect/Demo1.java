@@ -1,4 +1,4 @@
-package com.vi.demo;
+package com.vi.demo.reflect;
 
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class Demo1 {
     @Test
     public void test1() {
         try {
-            Class clazz = Class.forName("com.vi.demo.Person");
+            Class clazz = Class.forName("com.vi.demo.reflect.Person");
             Constructor[] constructors = clazz.getConstructors();//所有公有构造方法
             constructors = clazz.getDeclaredConstructors();//所有的构造方法(包括：私有、受保护、默认、公有)
             Constructor con = clazz.getConstructor(null);//获取公有、无参的构造方法
@@ -26,9 +26,10 @@ public class Demo1 {
                 System.out.println(constructor.getName());
             }
 
-            //下面我要下载一个无参的公共的构造函数
+            //下面我要实现一个无参的公共的构造函数
             Constructor con_demo = clazz.getConstructor(null);
-            Person obj = (Person) con_demo.newInstance(null);
+            Person obj = (Person) con_demo.newInstance();//或者con_demo.newInstance(null);
+
             System.out.println(obj.getname());
 
         } catch (ClassNotFoundException e) {
